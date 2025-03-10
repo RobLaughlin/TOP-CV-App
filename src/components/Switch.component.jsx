@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Switch.component.css";
 
-function Switch({ items, selectedItem = null }) {
-    const [selected, setSelected] = useState(selectedItem);
-
-    function itemClicked(e) {
-        const id = Number(e.target.dataset.id);
-        if (id !== selected) {
-            setSelected(id);
-        }
-    }
-
+function Switch({ items, itemClicked, selected = null }) {
     return (
         <ul className="switch">
             {items.map((item, idx) => {
