@@ -1,19 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Switch.component.css";
 
-function Switch({ itemList, selectedItem = null }) {
-    const [items, setItems] = useState(
-        itemList.map((item) => {
-            return {
-                text: item,
-                id: crypto.randomUUID(),
-            };
-        })
-    );
+function Switch({ items, selectedItem = null }) {
     const [selected, setSelected] = useState(selectedItem);
 
     function itemClicked(e) {
-        const id = e.target.dataset.id;
+        const id = Number(e.target.dataset.id);
         if (id !== selected) {
             setSelected(id);
         }
@@ -21,17 +13,17 @@ function Switch({ itemList, selectedItem = null }) {
 
     return (
         <ul className="switch">
-            {items.map((item) => {
-                const isSelected = selected === item.id;
+            {items.map((item, idx) => {
+                const isSelected = selected === idx;
                 const className = "item" + (isSelected ? " selected" : "");
                 return (
                     <li
                         className={className}
-                        key={item.id}
-                        data-id={item.id}
+                        key={idx}
+                        data-id={idx}
                         onClick={itemClicked}
                     >
-                        {item.text}
+                        {item}
                     </li>
                 );
             })}

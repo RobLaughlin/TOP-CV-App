@@ -17,7 +17,7 @@ function App() {
                 <header>
                     <h1>Build a Resume!</h1>
                 </header>
-                <Switch itemList={RESUME_SECTIONS} />
+                <Switch items={RESUME_SECTIONS} />
             </div>
             <div className="panelContainer"></div>
         </div>
