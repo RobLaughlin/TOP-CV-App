@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../styles/Switch.component.css";
+import React from "react";
+import "../styles/Switch.css";
 
 function Switch({ items, itemClicked, selected = null }) {
     return (

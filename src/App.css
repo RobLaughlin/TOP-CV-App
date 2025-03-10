@@ -22,14 +22,29 @@
 .appContainer {
     height: 100vh;
     display: flex;
+    width: 100vw;
     cursor: default;
 }
 
 .sectionContainer {
     background-color: #202020;
+    min-width: 300px;
 }
 
 .sectionContainer header {
     padding: 32px;
     padding-left: 16px;
+}
+
+.sectionContainer .title {
+    font-size: 32px;
+}
+
+.panelContainer {
+    display: flex;
+    width: 100%;
+}
+
+.panel {
+    margin: auto;
 }

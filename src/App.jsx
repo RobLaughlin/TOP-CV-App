@@ -1,13 +1,18 @@
 import { useState } from "react";
 import "./App.css";
-import Switch from "./components/Switch.component";
+import Switch from "./components/Switch";
+import Heading from "./components/Heading";
+import Education from "./components/Education";
+import WorkXp from "./components/WorkXp";
+import Skills from "./components/Skills";
+import Summary from "./components/Summary";
 
 const RESUME_SECTIONS = [
-    "Heading",
-    "Education",
-    "Work Experience",
-    "Skills",
-    "Summary",
+    ["Heading", <Heading />],
+    ["Education", <Education />],
+    ["Work Experience", <WorkXp />],
+    ["Skills", <Skills />],
+    ["Summary", <Summary />],
 ];
 
 function App() {
@@ -24,15 +29,19 @@ function App() {
         <div className="appContainer">
             <div className="sectionContainer">
                 <header>
-                    <h1>Build a Resume!</h1>
+                    <h1 className="title">Build a Resume!</h1>
                 </header>
                 <Switch
-                    items={RESUME_SECTIONS}
+                    items={RESUME_SECTIONS.map((item) => {
+                        return item[0];
+                    })}
                     itemClicked={itemClicked}
                     selected={selected}
                 />
             </div>
-            <div className="panelContainer"></div>
+            <div className="panelContainer">
+                <div className="panel">{RESUME_SECTIONS[selected][1]}</div>
+            </div>
         </div>
     );
 }
