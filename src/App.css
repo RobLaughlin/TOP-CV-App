@@ -28,7 +28,7 @@
 
 .sectionContainer {
     background-color: #202020;
-    min-width: 300px;
+    min-width: 320px;
 }
 
 .sectionContainer header {
@@ -47,4 +47,10 @@
 
 .panel {
     margin: auto;
+}
+
+.resumeForm {
+    display: flex;
+    margin: auto;
+    width: 80%;
 }
