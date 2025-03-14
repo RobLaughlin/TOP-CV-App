@@ -1,3 +1,6 @@
+.headingFormContainer {
+    max-width: 800px;
+}
 .headingFormContainer .group {
     padding: 32px;
     background-color: rgba(0, 0, 0, 0.1);
@@ -25,11 +28,29 @@
     font-size: 16px;
 }
 
-.headingFormContainer .inputWrapper input {
+.headingFormContainer .inputWrapper input,
+.headingFormContainer .inputWrapper select {
     padding: 4px;
     font-family: "Arial";
     font-weight: bold;
     font-size: 16px;
+    min-width: 0;
+}
+
+.headingFormContainer .inputWrapper input:valid,
+.headingFormContainer .inputWrapper input:valid:focus,
+.headingFormContainer .inputWrapper select:valid,
+.headingFormContainer .inputWrapper select:valid:focus {
+    outline: none;
+    border: 1px solid green;
+    border-radius: 4px;
+}
+
+.headingFormContainer .inputWrapper input:invalid:focus,
+.headingFormContainer .inputWrapper select:invalid:focus {
+    outline: none;
+    border: 1px solid red;
+    border-radius: 4px;
 }
 
 .headingFormContainer .grid {
@@ -38,19 +59,20 @@
     gap: 32px;
 }
 
-.headingFormContainer input {
-    min-width: 0;
-}
-
 .headingFormContainer .inputWrapper {
     grid-column: span 4;
     min-width: 0;
 }
 
-.headingFormContainer .countryWrapper {
+.headingFormContainer .stateWrapper {
     grid-column: span 2;
 }
 
 .headingFormContainer .zipWrapper {
     grid-column: span 2;
+}
+
+.headingFormContainer .required::after {
+    content: " *";
+    color: red;
 }

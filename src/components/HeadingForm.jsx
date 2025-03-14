@@ -1,61 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/HeadingForm.css";
-import { useForm } from "react-hook-form";
 
-function HeadingForm({ formProps }) {
-    const { register } = formProps;
+import { STATES } from "../constants";
+import IntInput from "./IntInput";
+import PhoneInput from "./PhoneInput";
 
+function HeadingForm() {
     return (
         <div className="headingFormContainer">
             <fieldset className="group">
                 <legend>Resume header</legend>
                 <div className="grid">
                     <div className="inputWrapper">
-                        <label for="FirstName">FIRST NAME</label>
-                        <input
-                            type="text"
-                            id="FirstName"
-                            {...register("FirstName")}
-                        />
+                        <label htmlFor="FirstName" className="required">
+                            FIRST NAME
+                        </label>
+                        <input type="text" id="FirstName" required />
                     </div>
                     <div className="inputWrapper">
-                        <label for="LastName">LAST NAME</label>
-                        <input
-                            type="text"
-                            id="LastName"
-                            {...register("LastName")}
-                        />
+                        <label htmlFor="LastName" className="required">
+                            LAST NAME
+                        </label>
+                        <input type="text" id="LastName" required />
                     </div>
                     <div className="inputWrapper cityWrapper">
-                        <label for="City">CITY</label>
-                        <input type="text" id="City" {...register("City")} />
+                        <label htmlFor="City" className="required">
+                            CITY
+                        </label>
+                        <input type="text" id="City" required />
                     </div>
-                    <div className="inputWrapper countryWrapper">
-                        <label for="Country">COUNTRY</label>
-                        <input
-                            type="text"
-                            id="Country"
-                            {...register("Country")}
-                        />
+                    <div className="inputWrapper stateWrapper">
+                        <label htmlFor="State" className="required">
+                            STATE
+                        </label>
+                        <select name="State" id="State">
+                            {STATES.map((state, idx) => {
+                                return (
+                                    <option value={state} key={idx}>
+                                        {state}
+                                    </option>
+                                );
+                            })}
+                        </select>
                     </div>
                     <div className="inputWrapper zipWrapper">
-                        <label for="Zip">ZIP CODE</label>
-                        <input type="number" id="Zip" {...register("Zip")} />
+                        <label htmlFor="Zip" className="required">
+                            ZIP CODE
+                        </label>
+                        <IntInput
+                            id="Zip"
+                            minValue={0}
+                            maxValue={99999}
+                            maxLength={5}
+                            required
+                        ></IntInput>
                     </div>
                     <div className="inputWrapper">
-                        <label for="EmailAddress">EMAIL ADDRESS</label>
-                        <input
-                            type="email"
-                            id="EmailAddress"
-                            {...register("EmailAddress")}
-                        />
+                        <label htmlFor="EmailAddress" className="required">
+                            EMAIL ADDRESS
+                        </label>
+                        <input type="email" id="EmailAddress" required />
                     </div>
                     <div className="inputWrapper">
-                        <label for="PhoneNumber">PHONE NUMBER</label>
-                        <input
-                            type="tel"
+                        <label htmlFor="PhoneNumber" className="required">
+                            PHONE NUMBER
+                        </label>
+                        <PhoneInput
                             id="PhoneNumber"
-                            {...register("PhoneNumber")}
+                            name="PhoneNumber"
+                            required
                         />
                     </div>
                 </div>
