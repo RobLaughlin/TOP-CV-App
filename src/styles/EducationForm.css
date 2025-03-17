@@ -24,3 +24,12 @@
     padding: 4px;
     text-overflow: ellipsis;
 }
+
+.educationFormContainer .certifications tr > th:last-child,
+.educationFormContainer .certifications tr > td:last-child {
+    width: 38px;
+}
+
+.educationFormContainer .certifications tr > th:last-child {
+    visibility: hidden;
+}

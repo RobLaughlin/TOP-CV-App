@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/EducationForm.css";
 
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 class Certification {
     constructor(school, fieldOfStudy, completionDate, schoolLocation = "") {
         this.school = school;
@@ -12,7 +15,6 @@ class Certification {
 
 function EducationForm() {
     const [certifications, setCertifications] = useState([]);
-    console.log(certifications);
 
     function addCertificateBtnClicked(e) {
         // Validate the education subform
@@ -53,6 +55,14 @@ function EducationForm() {
                 ),
                 key: crypto.randomUUID(),
             },
+        ]);
+    }
+
+    function removeCertification(keyToRemove) {
+        setCertifications([
+            ...certifications.filter(({ key }) => {
+                return key !== keyToRemove;
+            }),
         ]);
     }
 
@@ -120,12 +130,12 @@ function EducationForm() {
                                     <th>Location</th>
                                     <th>Certification</th>
                                     <th>Graduation Date</th>
+                                    <th className="certRemovalHeader"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {certifications.map(
                                     ({ certification, key }) => {
-                                        console.log(certification);
                                         return (
                                             <tr key={key}>
                                                 <td>{certification.school}</td>
@@ -141,6 +151,21 @@ function EducationForm() {
                                                     {
                                                         certification.completionDate
                                                     }
+                                                </td>
+                                                <td>
+                                                    <IconButton
+                                                        aria-label="delete"
+                                                        className="deleteBtn"
+                                                        size="small"
+                                                        color="error"
+                                                        onClick={() => {
+                                                            removeCertification(
+                                                                key
+                                                            );
+                                                        }}
+                                                    >
+                                                        <DeleteIcon fontSize="inherit" />
+                                                    </IconButton>
                                                 </td>
                                             </tr>
                                         );
