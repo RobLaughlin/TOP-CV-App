@@ -19,6 +19,10 @@
     src: url("./assets/fonts/Schoolbell/Schoolbell-Regular.ttf");
 }
 
+* {
+    overflow-x: hidden;
+}
+
 .appContainer {
     height: 100vh;
     display: flex;

@@ -1,0 +1,59 @@
+.formContainer {
+    max-width: 800px;
+}
+.formContainer .group {
+    padding: 32px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.formContainer .group legend {
+    font-size: 32px;
+    font-family: "PlayfairDisplay";
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+}
+
+.formContainer .inputWrapper {
+    display: grid;
+    flex-direction: row;
+}
+
+.formContainer .inputWrapper label {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.formContainer .inputWrapper input,
+.formContainer .inputWrapper select {
+    padding: 4px;
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 16px;
+    min-width: 0;
+}
+
+.formContainer .inputWrapper input.validate:valid,
+.formContainer .inputWrapper input.validate:valid:focus,
+.formContainer .inputWrapper select.validate:valid,
+.formContainer .inputWrapper select.validate:valid:focus {
+    outline: none;
+    border: 1px solid green;
+    border-radius: 4px;
+}
+
+.formContainer .inputWrapper input.validate:invalid:focus,
+.formContainer .inputWrapper select.validate:invalid:focus {
+    outline: none;
+    border: 1px solid red;
+    border-radius: 4px;
+}
+
+.formContainer .required::after {
+    content: " *";
+    color: red;
+}
