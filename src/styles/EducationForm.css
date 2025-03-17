@@ -29,7 +29,3 @@
 .educationFormContainer .certifications tr > td:last-child {
     width: 38px;
 }
-
-.educationFormContainer .certifications tr > th:last-child {
-    visibility: hidden;
-}
