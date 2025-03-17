@@ -41,7 +41,7 @@ function App() {
                 />
             </div>
             <div className="panelContainer">
-                <form className="resumeForm">
+                <form className="resumeForm" autoComplete="off">
                     {RESUME_SECTIONS.map((item, idx) => {
                         const [_, form] = item;
                         const display = idx === selected ? "block" : "none";
