@@ -7,3 +7,20 @@
 .educationFormContainer .addCertificateBtn {
     grid-column: span 2;
 }
+
+.educationFormContainer .certificationsContainer {
+    grid-column: span 2;
+}
+
+.educationFormContainer .certifications {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.educationFormContainer .certifications th,
+.educationFormContainer .certifications td {
+    border: 1px solid rgba(128, 128, 128, 0.457);
+    text-align: center;
+    padding: 4px;
+    text-overflow: ellipsis;
+}

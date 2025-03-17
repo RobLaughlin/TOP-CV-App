@@ -38,12 +38,21 @@ function EducationForm() {
         }
 
         // Form is valid! We can add this certificate
+        const [school, location, fieldOfStudy, completionDate] = inputs.map(
+            (input) => input.value
+        );
+
         setCertifications([
+            ...certifications,
             {
-                certification: new Certification(...inputs),
+                certification: new Certification(
+                    school,
+                    fieldOfStudy,
+                    completionDate,
+                    location
+                ),
                 key: crypto.randomUUID(),
             },
-            ...certifications,
         ]);
     }
 
@@ -103,6 +112,43 @@ function EducationForm() {
                     >
                         Add Certificate
                     </button>
+                    <div className="certificationsContainer">
+                        <table className="certifications">
+                            <thead>
+                                <tr>
+                                    <th>School</th>
+                                    <th>Location</th>
+                                    <th>Certification</th>
+                                    <th>Graduation Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {certifications.map(
+                                    ({ certification, key }) => {
+                                        console.log(certification);
+                                        return (
+                                            <tr key={key}>
+                                                <td>{certification.school}</td>
+                                                <td>
+                                                    {
+                                                        certification.schoolLocation
+                                                    }
+                                                </td>
+                                                <td>
+                                                    {certification.fieldOfStudy}
+                                                </td>
+                                                <td>
+                                                    {
+                                                        certification.completionDate
+                                                    }
+                                                </td>
+                                            </tr>
+                                        );
+                                    }
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </fieldset>
         </div>
