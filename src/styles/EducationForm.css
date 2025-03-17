@@ -4,7 +4,6 @@
     gap: 32px;
 }
 
-.educationFormContainer .graduationDateWrapper,
-.educationFormContainer .fieldOfStudyWrapper {
+.educationFormContainer .addCertificateBtn {
     grid-column: span 2;
 }
