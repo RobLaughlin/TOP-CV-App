@@ -29,7 +29,8 @@
 }
 
 .formContainer .inputWrapper input,
-.formContainer .inputWrapper select {
+.formContainer .inputWrapper select,
+.formContainer .inputWrapper textarea {
     padding: 4px;
     font-family: "Arial";
     font-weight: bold;
@@ -40,14 +41,17 @@
 .formContainer .inputWrapper input.validate:valid,
 .formContainer .inputWrapper input.validate:valid:focus,
 .formContainer .inputWrapper select.validate:valid,
-.formContainer .inputWrapper select.validate:valid:focus {
+.formContainer .inputWrapper select.validate:valid:focus,
+.formContainer .inputWrapper textarea.validate:valid,
+.formContainer .inputWrapper textarea.validate:valid:focus {
     outline: none;
     border: 1px solid green;
     border-radius: 4px;
 }
 
 .formContainer .inputWrapper input.validate:invalid:focus,
-.formContainer .inputWrapper select.validate:invalid:focus {
+.formContainer .inputWrapper select.validate:invalid:focus,
+.formContainer .inputWrapper textarea.validate:invalid:focus {
     outline: none;
     border: 1px solid red;
     border-radius: 4px;
