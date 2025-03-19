@@ -9,6 +9,7 @@
 }
 
 .workXpFormContainer .workResponsibilitiesContainer,
+.workXpFormContainer .jobTitleContainer,
 .workXpFormContainer .addExperienceBtn {
     grid-column: span 2;
 }
@@ -21,4 +22,15 @@
     width: 100% !important;
     margin-top: 4px;
     overflow-y: scroll;
+}
+
+.workXpFormContainer .experiencesListContainer {
+    grid-column: span 2;
+}
+
+.workXpFormContainer .experienceContainer {
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    padding: 32px;
+    margin-top: 16px;
+    border-radius: 4px;
 }

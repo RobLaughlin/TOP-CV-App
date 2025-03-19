@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/WorkXpForm.css";
 
+class WorkExperience {
+    constructor(
+        company,
+        location,
+        jobTitle,
+        startDate,
+        endDate,
+        responsibilities
+    ) {
+        this.company = company;
+        this.location = location;
+        this.jobTitle = jobTitle;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.responsibilities = responsibilities;
+    }
+}
+
 function WorkXpForm() {
+    const [workExperiences, setWorkExperiences] = useState([]);
+
     function addWorkExperienceBtnClicked(e) {
         // Validate the work experience subform
         const grid = e.target.parentElement;
@@ -25,6 +45,28 @@ function WorkXpForm() {
                 return;
             }
         }
+
+        // Subform is valid! We can continue
+
+        // Format the dates
+        const data = inputs.map((input) => {
+            if (input.getAttribute("type") === "date") {
+                return new Date(input.value)
+                    .toDateString()
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+            }
+            return input.value;
+        });
+
+        setWorkExperiences([
+            ...workExperiences,
+            {
+                xp: new WorkExperience(...data),
+                key: crypto.randomUUID(),
+            },
+        ]);
     }
 
     function validateDates(e) {
@@ -73,6 +115,18 @@ function WorkXpForm() {
                             className="validate"
                         />
                     </div>
+                    <div className="inputWrapper jobTitleContainer">
+                        <label htmlFor="JobTitle" className="required">
+                            JOB TITLE
+                        </label>
+                        <input
+                            type="text"
+                            id="JobTitle"
+                            data-priority={3}
+                            required
+                            className="validate"
+                        />
+                    </div>
                     <div className="inputWrapper">
                         <label htmlFor="WorkStartDate" className="required">
                             START DATE
@@ -82,7 +136,7 @@ function WorkXpForm() {
                             id="WorkStartDate"
                             required
                             className="validate"
-                            data-priority={3}
+                            data-priority={4}
                             onChange={validateDates}
                         />
                     </div>
@@ -95,7 +149,7 @@ function WorkXpForm() {
                             id="WorkEndDate"
                             required
                             className="validate"
-                            data-priority={4}
+                            data-priority={5}
                             onChange={validateDates}
                         />
                     </div>
@@ -111,7 +165,7 @@ function WorkXpForm() {
                             id="WorkResponsibilities"
                             required
                             className="validate"
-                            data-priority={5}
+                            data-priority={6}
                         ></textarea>
                     </div>
                     <button
@@ -121,6 +175,30 @@ function WorkXpForm() {
                     >
                         Add Work Experience
                     </button>
+                    <div className="experiencesListContainer">
+                        <ul className="experiencesList">
+                            {workExperiences.map(({ xp, key }) => {
+                                return (
+                                    <li
+                                        className="experienceContainer"
+                                        key={key}
+                                    >
+                                        <div className="experience">
+                                            <h3>
+                                                {xp.company} | {xp.jobTitle}
+                                            </h3>
+
+                                            <h5>
+                                                {xp.location} | {xp.startDate}{" "}
+                                                to {xp.endDate}
+                                            </h5>
+                                            <p>{xp.responsibilities}</p>
+                                        </div>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
                 </div>
             </fieldset>
         </div>
