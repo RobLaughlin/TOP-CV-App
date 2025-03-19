@@ -1,3 +1,8 @@
-.skillsForm {
-    color: green;
+.skillsContainer .grid {
+    display: grid;
+    gap: 16px;
+}
+
+.skillsContainer #SkillDescription {
+    resize: none;
 }
