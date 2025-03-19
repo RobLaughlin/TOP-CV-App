@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/SkillsForm.css";
 
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 class Skill {
     constructor(name, description = "") {
         this.name = name;
@@ -29,6 +32,14 @@ function SkillsForm() {
                 skill,
                 key: crypto.randomUUID(),
             },
+        ]);
+    }
+
+    function removeSkill(keyToRemove) {
+        setSkills([
+            ...skills.filter(({ key }) => {
+                return key !== keyToRemove;
+            }),
         ]);
     }
 
@@ -71,8 +82,21 @@ function SkillsForm() {
                         {skills.map(({ skill, key }) => {
                             return (
                                 <li className="skill" key={key}>
-                                    <h4>{skill.name}</h4>
-                                    <p>{skill.description}</p>
+                                    <IconButton
+                                        aria-label="delete"
+                                        className="deleteBtn"
+                                        size="small"
+                                        color="error"
+                                        onClick={() => {
+                                            removeSkill(key);
+                                        }}
+                                    >
+                                        <DeleteIcon fontSize="inherit" />
+                                    </IconButton>
+                                    <div className="skillInfo">
+                                        <h4>{skill.name}</h4>
+                                        <p>{skill.description}</p>
+                                    </div>
                                 </li>
                             );
                         })}

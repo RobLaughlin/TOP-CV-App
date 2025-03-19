@@ -13,4 +13,10 @@
     margin-top: 16px;
     border-radius: 4px;
     word-wrap: break-word;
+    display: flex;
+    align-items: center;
+}
+
+.skillsContainer .skillInfo {
+    margin-left: 8px;
 }
