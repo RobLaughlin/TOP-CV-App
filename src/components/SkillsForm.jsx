@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/SkillsForm.css";
 
+class Skill {
+    constructor(name, description = "") {
+        this.name = name;
+        this.description = description;
+    }
+}
+
 function SkillsForm() {
+    const [skills, setSkills] = useState([]);
+
+    function addSkillBtnClicked(e) {
+        const grid = e.target.parentElement;
+        const skillName = grid.querySelector("#SkillName");
+        const skillDesc = grid.querySelector("#SkillDescription");
+
+        if (!skillName.reportValidity()) {
+            // Check if skill name is valid
+            return;
+        }
+
+        // Inputs are valid, continue
+        const skill = new Skill(skillName.value, skillDesc.value);
+        setSkills([
+            ...skills,
+            {
+                skill,
+                key: crypto.randomUUID(),
+            },
+        ]);
+    }
+
     return (
         <div className="skillsContainer formContainer">
             <fieldset className="group">
@@ -30,9 +60,23 @@ function SkillsForm() {
                             data-priority={2}
                         ></textarea>
                     </div>
-                    <button className="addSkillBtn" type="button">
+                    <button
+                        className="addSkillBtn"
+                        type="button"
+                        onClick={addSkillBtnClicked}
+                    >
                         Add Skill
                     </button>
+                    <ul className="skillsList">
+                        {skills.map(({ skill, key }) => {
+                            return (
+                                <li className="skill" key={key}>
+                                    <h4>{skill.name}</h4>
+                                    <p>{skill.description}</p>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
             </fieldset>
         </div>
