@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/WorkXpForm.css";
 
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 class WorkExperience {
     constructor(
         company,
@@ -84,6 +87,14 @@ function WorkXpForm() {
             workEndDate.setCustomValidity("");
         }
         workEndDate.reportValidity();
+    }
+
+    function removeExperience(keyToRemove) {
+        setWorkExperiences([
+            ...workExperiences.filter(({ key }) => {
+                return key !== keyToRemove;
+            }),
+        ]);
     }
 
     return (
@@ -184,15 +195,29 @@ function WorkXpForm() {
                                         key={key}
                                     >
                                         <div className="experience">
-                                            <h3>
-                                                {xp.company} | {xp.jobTitle}
-                                            </h3>
+                                            <IconButton
+                                                aria-label="delete"
+                                                className="deleteBtn"
+                                                size="small"
+                                                color="error"
+                                                onClick={() => {
+                                                    removeExperience(key);
+                                                }}
+                                            >
+                                                <DeleteIcon fontSize="inherit" />
+                                            </IconButton>
+                                            <div className="experienceInfoContainer">
+                                                <h3>
+                                                    {xp.company} | {xp.jobTitle}
+                                                </h3>
 
-                                            <h5>
-                                                {xp.location} | {xp.startDate}{" "}
-                                                to {xp.endDate}
-                                            </h5>
-                                            <p>{xp.responsibilities}</p>
+                                                <h5>
+                                                    {xp.location} |{" "}
+                                                    {xp.startDate} to{" "}
+                                                    {xp.endDate}
+                                                </h5>
+                                                <p>{xp.responsibilities}</p>
+                                            </div>
                                         </div>
                                     </li>
                                 );

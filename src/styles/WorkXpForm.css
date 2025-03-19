@@ -30,7 +30,18 @@
 
 .workXpFormContainer .experienceContainer {
     border: 1px solid rgba(128, 128, 128, 0.5);
-    padding: 32px;
+    padding: 16px;
     margin-top: 16px;
     border-radius: 4px;
+    padding-left: 8px;
+}
+
+.workXpFormContainer .experience {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.workXpFormContainer .experienceInfoContainer {
+    word-wrap: break-word;
 }
