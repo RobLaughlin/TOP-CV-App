@@ -6,14 +6,12 @@ import HeadingForm from "./components/HeadingForm";
 import EducationForm from "./components/EducationForm";
 import WorkXpForm from "./components/WorkXpForm";
 import SkillsForm from "./components/SkillsForm";
-import SummaryForm from "./components/SummaryForm";
 
 const RESUME_SECTIONS = [
     ["Heading", <HeadingForm />],
     ["Education", <EducationForm />],
     ["Work Experience", <WorkXpForm />],
     ["Skills", <SkillsForm />],
-    ["Summary", <SummaryForm />],
 ];
 
 function App() {
@@ -39,6 +37,7 @@ function App() {
                     itemClicked={itemClicked}
                     selected={selected}
                 />
+                <button className="generateResumeBtn">Build Resume</button>
             </div>
             <div className="panelContainer">
                 <form className="resumeForm" autoComplete="off">
