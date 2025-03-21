@@ -21,6 +21,8 @@ function HeadingForm() {
                             id="FirstName"
                             required
                             className="validate"
+                            data-priority={1}
+                            name="FirstName"
                         />
                     </div>
                     <div className="inputWrapper">
@@ -32,6 +34,8 @@ function HeadingForm() {
                             id="LastName"
                             required
                             className="validate"
+                            data-priority={2}
+                            name="LastName"
                         />
                     </div>
                     <div className="inputWrapper cityWrapper">
@@ -43,6 +47,8 @@ function HeadingForm() {
                             id="City"
                             required
                             className="validate"
+                            data-priority={3}
+                            name="City"
                         />
                     </div>
                     <div className="inputWrapper stateWrapper">
@@ -54,6 +60,7 @@ function HeadingForm() {
                             id="State"
                             className="validate"
                             required
+                            data-priority={4}
                         >
                             {STATES.map((state, idx) => {
                                 return (
@@ -76,6 +83,8 @@ function HeadingForm() {
                             minLength={5}
                             required
                             className="validate"
+                            data-priority={5}
+                            name="Zip"
                         ></IntInput>
                     </div>
                     <div className="inputWrapper">
@@ -83,10 +92,12 @@ function HeadingForm() {
                             EMAIL ADDRESS
                         </label>
                         <input
+                            name="EmailAddress"
                             type="email"
                             id="EmailAddress"
                             required
                             className="validate"
+                            data-priority={6}
                         />
                     </div>
                     <div className="inputWrapper">
@@ -98,6 +109,7 @@ function HeadingForm() {
                             name="PhoneNumber"
                             required
                             className="validate"
+                            data-priority={7}
                         />
                     </div>
                 </div>

@@ -45,3 +45,11 @@
 .workXpFormContainer .experienceInfoContainer {
     word-wrap: break-word;
 }
+
+.workXpFormContainer #ExperiencesData {
+    display: none;
+}
+
+.workXpFormContainer .xpData {
+    display: none;
+}

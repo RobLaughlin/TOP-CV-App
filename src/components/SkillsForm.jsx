@@ -11,9 +11,7 @@ class Skill {
     }
 }
 
-function SkillsForm() {
-    const [skills, setSkills] = useState([]);
-
+function SkillsForm({ skills, setSkills }) {
     function addSkillBtnClicked(e) {
         const grid = e.target.parentElement;
         const skillName = grid.querySelector("#SkillName");

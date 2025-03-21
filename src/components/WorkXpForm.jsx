@@ -22,9 +22,7 @@ class WorkExperience {
     }
 }
 
-function WorkXpForm() {
-    const [workExperiences, setWorkExperiences] = useState([]);
-
+function WorkXpForm({ workExperiences, setWorkExperiences }) {
     function addWorkExperienceBtnClicked(e) {
         // Validate the work experience subform
         const grid = e.target.parentElement;

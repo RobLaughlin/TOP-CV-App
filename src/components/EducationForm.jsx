@@ -13,9 +13,7 @@ class Certification {
     }
 }
 
-function EducationForm() {
-    const [certifications, setCertifications] = useState([]);
-
+function EducationForm({ certifications, setCertifications }) {
     function addCertificateBtnClicked(e) {
         // Validate the education subform
 
@@ -138,16 +136,30 @@ function EducationForm() {
                                     ({ certification, key }) => {
                                         return (
                                             <tr key={key}>
-                                                <td>{certification.school}</td>
-                                                <td>
+                                                <td
+                                                    data-name="school"
+                                                    className="data"
+                                                >
+                                                    {certification.school}
+                                                </td>
+                                                <td
+                                                    data-name="location"
+                                                    className="data"
+                                                >
                                                     {
                                                         certification.schoolLocation
                                                     }
                                                 </td>
-                                                <td>
+                                                <td
+                                                    data-name="field"
+                                                    className="data"
+                                                >
                                                     {certification.fieldOfStudy}
                                                 </td>
-                                                <td>
+                                                <td
+                                                    data-name="completionDate"
+                                                    className="data"
+                                                >
                                                     {
                                                         certification.completionDate
                                                     }
